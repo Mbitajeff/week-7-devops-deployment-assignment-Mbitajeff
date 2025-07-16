@@ -41,14 +41,14 @@ week-7-devops-deployment-assignment-Mbitajeff/
 
 ### 1. Clone the Repository
 ```
-git clone <your-repo-url>
+git clone https://github.com/Mbitajeff/week-7-devops-deployment-assignment-Mbitajeff.git
 cd week-7-devops-deployment-assignment-Mbitajeff
 ```
 
 ### 2. Setup Environment Variables
 - Copy `.env.example` to `.env` in both `client/` and `server/` folders.
 - Fill in your MongoDB URI and JWT secret in `server/.env`.
-- Set `REACT_APP_API_URL` in `client/.env` to your backend URL (e.g., `http://localhost:5000/api`).
+- Set `REACT_APP_API_URL` in `client/.env` to your backend URL (e.g., `https://week-7-devops-deployment-assignment-kl6o.onrender.com/api`).
 
 ### 3. Install Dependencies
 ```
@@ -76,26 +76,21 @@ pnpm install
 ## Deployment
 
 ### Backend (Render)
-1. Push your code to your own GitHub repo.
-2. Create a new Web Service on [Render](https://render.com/).
-3. Connect your repo, set root to `server/`.
-4. Set environment variables: `PORT`, `MONGO_URI`, `JWT_SECRET`.
-5. Set start command: `npm start`.
-6. Deploy and copy your backend URL.
+- **URL:** https://week-7-devops-deployment-assignment-kl6o.onrender.com/
+- See Render dashboard for logs and monitoring.
 
 ### Frontend (Vercel)
-1. Import your repo on [Vercel](https://vercel.com/).
-2. Set root to `client/`.
-3. Set environment variable: `REACT_APP_API_URL` to your Render backend URL + `/api`.
-4. Deploy.
+- **URL:** https://week-7-devops-deployment-assignment-alpha.vercel.app/
+- See Vercel dashboard for logs and monitoring.
 
 ---
 
 ## CI/CD (GitHub Actions)
-- Workflows in `.github/workflows/` run tests, lint, and deploy on push.
+- Workflows in `.github/workflows/` run tests, lint, and build on push.
 - Example files:
   - `frontend-ci.yml` / `backend-ci.yml`: Lint/test/build
-  - `frontend-cd.yml` / `backend-cd.yml`: Deploy
+- ![CI/CD Status](https://github.com/Mbitajeff/week-7-devops-deployment-assignment-Mbitajeff/actions/workflows/frontend-ci.yml/badge.svg)
+- ![CI/CD Status](https://github.com/Mbitajeff/week-7-devops-deployment-assignment-Mbitajeff/actions/workflows/backend-ci.yml/badge.svg)
 
 ---
 
@@ -108,15 +103,18 @@ pnpm install
 ---
 
 ## Screenshots
-- ![Login Page](./screenshots/login.png)
-- ![Dashboard](./screenshots/dashboard.png)
-- ![CI/CD Pipeline](./screenshots/cicd.png)
+
+### Render Deployment
+![Render Deployment](./screenshots/render-deploy.png)
+
+### Vercel Deployment
+![Vercel Deployment](./screenshots/vercel-deploy.png)
 
 ---
 
 ## Live Demo
-- **Frontend:** [your-frontend-url]
-- **Backend API:** [your-backend-url]
+- **Frontend:** https://week-7-devops-deployment-assignment-alpha.vercel.app/
+- **Backend API:** https://week-7-devops-deployment-assignment-kl6o.onrender.com/
 
 ---
 
