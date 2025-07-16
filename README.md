@@ -1,78 +1,124 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19945339&assignment_repo_type=AssignmentRepo)
-# Deployment and DevOps for MERN Applications
+# MERN Task Manager
 
-This assignment focuses on deploying a full MERN stack application to production, implementing CI/CD pipelines, and setting up monitoring for your application.
+A full-stack Task Manager application built with MongoDB, Express, React, and Node.js. Includes authentication, task CRUD, user profile, and is ready for production deployment with CI/CD and monitoring.
 
-## Assignment Overview
+---
 
-You will:
-1. Prepare your MERN application for production deployment
-2. Deploy the backend to a cloud platform
-3. Deploy the frontend to a static hosting service
-4. Set up CI/CD pipelines with GitHub Actions
-5. Implement monitoring and maintenance strategies
+## Features
+- User registration and login (JWT authentication)
+- Create, read, update, and delete tasks
+- Mark tasks as completed
+- Edit/delete tasks
+- User profile (view/update name, email, password)
+- Protected routes (frontend and backend)
+- Responsive UI with Tailwind CSS
+- Error handling and user feedback
+- Ready for deployment to Render (backend) and Vercel (frontend)
+- CI/CD with GitHub Actions
+- Health check and monitoring endpoints
+
+---
+
+## Folder Structure
+```
+week-7-devops-deployment-assignment-Mbitajeff/
+  client/      # React frontend
+  server/      # Express backend
+  .github/     # GitHub Actions workflows
+  .env.example # Environment variable templates
+  README.md    # This file
+```
+
+---
 
 ## Getting Started
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week7-Assignment.md` file
-4. Use the provided templates and configuration files as a starting point
+### Prerequisites
+- Node.js (v16+ recommended)
+- pnpm or npm
+- MongoDB Atlas account
+- GitHub account
 
-## Files Included
+### 1. Clone the Repository
+```
+git clone <your-repo-url>
+cd week-7-devops-deployment-assignment-Mbitajeff
+```
 
-- `Week7-Assignment.md`: Detailed assignment instructions
-- `.github/workflows/`: GitHub Actions workflow templates
-- `deployment/`: Deployment configuration files and scripts
-- `.env.example`: Example environment variable templates
-- `monitoring/`: Monitoring configuration examples
+### 2. Setup Environment Variables
+- Copy `.env.example` to `.env` in both `client/` and `server/` folders.
+- Fill in your MongoDB URI and JWT secret in `server/.env`.
+- Set `REACT_APP_API_URL` in `client/.env` to your backend URL (e.g., `http://localhost:5000/api`).
 
-## Requirements
+### 3. Install Dependencies
+```
+cd server
+pnpm install
+cd ../client
+pnpm install
+```
 
-- A completed MERN stack application from previous weeks
-- Accounts on the following services:
-  - GitHub
-  - MongoDB Atlas
-  - Render, Railway, or Heroku (for backend)
-  - Vercel, Netlify, or GitHub Pages (for frontend)
-- Basic understanding of CI/CD concepts
+### 4. Run Locally
+- **Backend:**
+  ```
+  cd server
+  pnpm start
+  ```
+- **Frontend:**
+  ```
+  cd client
+  pnpm start
+  ```
+- Visit [http://localhost:3000](http://localhost:3000)
 
-## Deployment Platforms
+---
 
-### Backend Deployment Options
-- **Render**: Easy to use, free tier available
-- **Railway**: Developer-friendly, generous free tier
-- **Heroku**: Well-established, extensive documentation
+## Deployment
 
-### Frontend Deployment Options
-- **Vercel**: Optimized for React apps, easy integration
-- **Netlify**: Great for static sites, good CI/CD
-- **GitHub Pages**: Free, integrated with GitHub
+### Backend (Render)
+1. Push your code to your own GitHub repo.
+2. Create a new Web Service on [Render](https://render.com/).
+3. Connect your repo, set root to `server/`.
+4. Set environment variables: `PORT`, `MONGO_URI`, `JWT_SECRET`.
+5. Set start command: `npm start`.
+6. Deploy and copy your backend URL.
 
-## CI/CD Pipeline
+### Frontend (Vercel)
+1. Import your repo on [Vercel](https://vercel.com/).
+2. Set root to `client/`.
+3. Set environment variable: `REACT_APP_API_URL` to your Render backend URL + `/api`.
+4. Deploy.
 
-The assignment includes templates for setting up GitHub Actions workflows:
-- `frontend-ci.yml`: Tests and builds the React application
-- `backend-ci.yml`: Tests the Express.js backend
-- `frontend-cd.yml`: Deploys the frontend to your chosen platform
-- `backend-cd.yml`: Deploys the backend to your chosen platform
+---
 
-## Submission
+## CI/CD (GitHub Actions)
+- Workflows in `.github/workflows/` run tests, lint, and deploy on push.
+- Example files:
+  - `frontend-ci.yml` / `backend-ci.yml`: Lint/test/build
+  - `frontend-cd.yml` / `backend-cd.yml`: Deploy
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+---
 
-1. Complete all deployment tasks
-2. Set up CI/CD pipelines with GitHub Actions
-3. Deploy both frontend and backend to production
-4. Document your deployment process in the README.md
-5. Include screenshots of your CI/CD pipeline in action
-6. Add URLs to your deployed applications
+## Monitoring & Maintenance
+- Health check endpoint: `GET /api/health`
+- Use UptimeRobot, Render/Vercel monitoring, or similar
+- Error tracking: Add Sentry or similar if desired
+- Regularly update dependencies and backup your database
 
-## Resources
+---
 
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [MongoDB Atlas Documentation](https://docs.atlas.mongodb.com/)
-- [Render Documentation](https://render.com/docs)
-- [Railway Documentation](https://docs.railway.app/)
-- [Vercel Documentation](https://vercel.com/docs)
-- [Netlify Documentation](https://docs.netlify.com/) 
+## Screenshots
+- ![Login Page](./screenshots/login.png)
+- ![Dashboard](./screenshots/dashboard.png)
+- ![CI/CD Pipeline](./screenshots/cicd.png)
+
+---
+
+## Live Demo
+- **Frontend:** [your-frontend-url]
+- **Backend API:** [your-backend-url]
+
+---
+
+## License
+MIT 
